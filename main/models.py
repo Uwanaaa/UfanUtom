@@ -4,6 +4,7 @@ from django_tenants.models import TenantMixin,DomainMixin
 
 
 
+
 class Client(TenantMixin):
 
     FREE = 'FR'
@@ -23,12 +24,14 @@ class Client(TenantMixin):
     subscribed = models.BooleanField(default=False,blank=None,null=None)
     password = models.CharField(max_length=60,blank=None,null=None)
 
+    auto_create_schema = True
+
     class Meta:
-        ordering = [id]
+        ordering = ['id']
         verbose_name = 'Client'
         verbose_name_plural = 'Clients'
         indexes = [
-            models.Index(fields=[id])
+            models.Index(fields=['id'])
         ]
 
 
@@ -36,5 +39,10 @@ class Client(TenantMixin):
         return self.name
     
 
+
+
 class Domain(DomainMixin):
     pass
+
+
+
