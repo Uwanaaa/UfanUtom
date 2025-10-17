@@ -1,0 +1,14 @@
+from dependency_injector import containers, providers
+from .services import EmailService
+from .repositories import EmailRepository
+from .models import EmailSubscription
+from .usecases import EmailUseCase
+
+
+class MailContainer(containers.DeclarativeContainer):
+    config = providers.Configuration()
+
+    email_model = providers.Singleton(EmailSubscription)
+    email_repository = providers.Singleton(EmailRepository, model=email_model)
+    email_service = providers.Singleton(EmailService, repository=email_repository)
+    email_usecase = providers.Singleton(EmailUseCase, service=email_service)

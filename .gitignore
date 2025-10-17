@@ -1,1 +1,10 @@
 .env
+ufanutom/bin
+ufanutom/lib
+ufanutom/__pycache__/
+ufanutom/include
+
+main/__pycache__/
+mail/__pycache__/
+
+__pycache__/

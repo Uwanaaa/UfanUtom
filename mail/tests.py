@@ -1,12 +1,12 @@
 from django.test import TestCase
 from django.urls import reverse
-from .models import EmailSubscription
+from .usecases import EmailUseCase
 
 class Email(TestCase):
     def setUp(self) -> None:
         self.test_email = 'test@mail.com'
 
-        EmailSubscription.objects.create(mail=self.test_email)
+        EmailUseCase.execute(mail=self.test_email)
 
     def test_mail_to_subscriber(self):
         response = self.client.post(reverse('subscribe'),{"mail":self.test_email})
