@@ -20,8 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('create/', include('main.urls')),
-    path('mail/',include('mail.urls')),
+    path('mail/',include('apps.mail.urls')),
 ]
 
 

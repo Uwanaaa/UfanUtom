@@ -1,4 +1,5 @@
 .env.*
+.env
 ufanutom/bin
 ufanutom/lib
 ufanutom/__pycache__/
